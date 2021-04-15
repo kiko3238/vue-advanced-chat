@@ -381,6 +381,7 @@ export default {
 		showNewMessagesDivider: { type: Boolean, required: true },
 		showFooter: { type: Boolean, required: true },
 		acceptedFiles: { type: String, required: true },
+		submitWithEnter: { type: Boolean, required: true },
 		textFormatting: { type: Boolean, required: true },
 		linkOptions: { type: Object, required: true },
 		loadingRooms: { type: Boolean, required: true },
@@ -518,10 +519,15 @@ export default {
 					this.message = this.message + '\n'
 					setTimeout(() => this.onChangeInput())
 				} else {
-					this.sendMessage()
+					if (this.submitWithEnter) {
+						this.sendMessage()
+					} else {
+						this.message = this.message + '\n'
+						setTimeout(() => this.onChangeInput())
+					}
 				}
 			}
-
+			
 			this.updateFooterList('@')
 			this.updateFooterList(':')
 		})

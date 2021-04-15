@@ -53,6 +53,7 @@
 				:room-info="$listeners['room-info']"
 				:textarea-action="$listeners['textarea-action-handler']"
 				:accepted-files="acceptedFiles"
+				:submit-with-enter="submitWithEnter"
 				@toggle-rooms-list="toggleRoomsList"
 				@room-info="roomInfo"
 				@fetch-messages="fetchMessages"
@@ -133,7 +134,8 @@ export default {
 		},
 		newMessage: { type: Object, default: null },
 		roomMessage: { type: String, default: '' },
-		acceptedFiles: { type: String, default: '*' }
+		acceptedFiles: { type: String, default: '*' },
+		submitWithEnter: { type: Boolean, default: true }
 	},
 
 	data() {
